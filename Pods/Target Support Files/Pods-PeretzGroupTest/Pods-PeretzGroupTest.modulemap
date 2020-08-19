@@ -1,0 +1,6 @@
+framework module Pods_PeretzGroupTest {
+  umbrella header "Pods-PeretzGroupTest-umbrella.h"
+
+  export *
+  module * { export * }
+}
