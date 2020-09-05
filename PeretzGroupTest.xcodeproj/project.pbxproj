@@ -12,7 +12,7 @@
 		526F119A24E6C36D00FCDE25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 526F119924E6C36D00FCDE25 /* Assets.xcassets */; };
 		526F119D24E6C36D00FCDE25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 526F119B24E6C36D00FCDE25 /* LaunchScreen.storyboard */; };
 		526F11A624E6C59900FCDE25 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526F11A524E6C59900FCDE25 /* UIColor+Ext.swift */; };
-		526F11A924E6CF8F00FCDE25 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526F11A824E6CF8F00FCDE25 /* MenuTableViewController.swift */; };
+		526F11A924E6CF8F00FCDE25 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526F11A824E6CF8F00FCDE25 /* MenuViewController.swift */; };
 		526F11AC24E6CFB400FCDE25 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526F11AB24E6CFB400FCDE25 /* MenuTableViewCell.swift */; };
 		526F11B024E6D63700FCDE25 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526F11AF24E6D63600FCDE25 /* MenuModel.swift */; };
 		526F11B324E6D71C00FCDE25 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526F11B224E6D71C00FCDE25 /* NetworkManager.swift */; };
@@ -31,7 +31,7 @@
 		526F119C24E6C36D00FCDE25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		526F119E24E6C36D00FCDE25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		526F11A524E6C59900FCDE25 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
-		526F11A824E6CF8F00FCDE25 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		526F11A824E6CF8F00FCDE25 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		526F11AB24E6CFB400FCDE25 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		526F11AF24E6D63600FCDE25 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		526F11B224E6D71C00FCDE25 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				526F11AA24E6CFA700FCDE25 /* Cell */,
-				526F11A824E6CF8F00FCDE25 /* MenuTableViewController.swift */,
+				526F11A824E6CF8F00FCDE25 /* MenuViewController.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -272,7 +272,7 @@
 				526F119124E6C36C00FCDE25 /* AppDelegate.swift in Sources */,
 				526F11B024E6D63700FCDE25 /* MenuModel.swift in Sources */,
 				526F11AC24E6CFB400FCDE25 /* MenuTableViewCell.swift in Sources */,
-				526F11A924E6CF8F00FCDE25 /* MenuTableViewController.swift in Sources */,
+				526F11A924E6CF8F00FCDE25 /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
