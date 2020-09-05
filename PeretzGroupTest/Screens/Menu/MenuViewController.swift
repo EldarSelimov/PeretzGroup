@@ -15,9 +15,13 @@ class MenuViewController: UIViewController {
     private let cartManager = CartManager.shared
     
     @IBOutlet private weak var tableView: UITableView!
-
+    @IBOutlet weak var cartView: CartView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.backgroundColor = UIColor(red: 0.092, green: 0.092, blue: 0.092, alpha: 1)
+        tableView.contentInset.bottom = 70 + (UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0)
         
         NetworkManager.shared.getMenu(onSuccess: { [weak self] (menuList) in
             self?.menu = menuList
@@ -53,10 +57,22 @@ extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
         
         let item = menu[indexPath.row]
         let count = cartManager.getDishCount(by: item.id)
-        cell.configure(with: item, count: count)
+        cell.configure(with: item, count: count, delegate: self)
         
         return cell
     }
+}
+
+extension MenuViewController: MenuTableViewCellDelegate {
+    
+    func orderAdded(_ order: MenuModel) {
+        cartView.addOrder(order)
+    }
+    
+    func orderDeleted(_ order: MenuModel) {
+        cartView.removeOrder(order)
+    }
+    
 }
 
 

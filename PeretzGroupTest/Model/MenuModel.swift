@@ -8,11 +8,16 @@
 
 import Foundation
 
-struct MenuModel: Codable {
+struct MenuModel: Codable, Equatable {
     let id: Int
     let name: String
     let description: String
     let new: Bool
     let price: Int
     let image: String
+    
+    static func ==(lhs: MenuModel, rhs: MenuModel) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
 }

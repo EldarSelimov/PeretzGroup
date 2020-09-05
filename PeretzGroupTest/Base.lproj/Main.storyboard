@@ -59,8 +59,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YOv-S1-uiL">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="722"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="menuCell" rowHeight="178" id="huL-DH-RqM" customClass="MenuTableViewCell" customModule="PeretzGroupTest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="178"/>
@@ -218,18 +218,29 @@
                                     <outlet property="delegate" destination="Tfa-eR-B6n" id="h05-FY-ygY"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPl-uD-5YQ" customClass="CartView" customModule="PeretzGroupTest" customModuleProvider="target">
+                                <rect key="frame" x="15" y="642" width="384" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="8KT-hg-Baw"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="YOv-S1-uiL" firstAttribute="leading" secondItem="DOp-X4-2ny" secondAttribute="leading" id="8v2-IV-fiY"/>
+                            <constraint firstItem="VPl-uD-5YQ" firstAttribute="leading" secondItem="DOp-X4-2ny" secondAttribute="leading" constant="15" id="Ukg-o3-OXy"/>
                             <constraint firstItem="YOv-S1-uiL" firstAttribute="top" secondItem="DOp-X4-2ny" secondAttribute="top" id="W8D-By-ik7"/>
+                            <constraint firstItem="DOp-X4-2ny" firstAttribute="trailing" secondItem="VPl-uD-5YQ" secondAttribute="trailing" constant="15" id="cQn-nr-RMz"/>
+                            <constraint firstItem="DOp-X4-2ny" firstAttribute="bottom" secondItem="VPl-uD-5YQ" secondAttribute="bottom" constant="30" id="ckk-ep-Tnv"/>
                             <constraint firstItem="DOp-X4-2ny" firstAttribute="trailing" secondItem="YOv-S1-uiL" secondAttribute="trailing" id="roH-JW-72K"/>
-                            <constraint firstItem="DOp-X4-2ny" firstAttribute="bottom" secondItem="YOv-S1-uiL" secondAttribute="bottom" id="t0Q-7W-WZ1"/>
+                            <constraint firstAttribute="bottom" secondItem="YOv-S1-uiL" secondAttribute="bottom" id="t0Q-7W-WZ1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DOp-X4-2ny"/>
                     </view>
                     <navigationItem key="navigationItem" id="3N7-Xb-tGT"/>
                     <connections>
+                        <outlet property="cartView" destination="VPl-uD-5YQ" id="oqH-6n-2ih"/>
                         <outlet property="tableView" destination="YOv-S1-uiL" id="EnX-9f-4D9"/>
                     </connections>
                 </viewController>

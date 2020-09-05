@@ -9,6 +9,11 @@
 import UIKit
 import Kingfisher
 
+protocol MenuTableViewCellDelegate: class {
+    func orderAdded(_ order: MenuModel)
+    func orderDeleted(_ order: MenuModel)
+}
+
 class MenuTableViewCell: UITableViewCell {
 
     @IBOutlet weak var menuImageView: UIImageView!
@@ -22,17 +27,20 @@ class MenuTableViewCell: UITableViewCell {
     
     private let cartManager = CartManager.shared
     
-    private var id: Int!
+    private var order: MenuModel?
     
     private var count = 0
+    
+    private weak var delegate: MenuTableViewCellDelegate!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
     }
     
-    func configure(with menu: MenuModel, count: Int?) {
-        self.id = menu.id
+    func configure(with menu: MenuModel, count: Int?, delegate: MenuTableViewCellDelegate) {
+        self.order = menu
+        self.delegate = delegate
         menuImageView.kf.setImage(with: URL(string: menu.image))
         newView.isHidden = !menu.new
         
@@ -51,25 +59,27 @@ class MenuTableViewCell: UITableViewCell {
     }
     
     @IBAction func actionMinus(_ sender: Any) {
-        guard let id = self.id else { return }
-        cartManager.minusDishes(id)
+        guard let order = self.order else { return }
+        cartManager.minusDishes(order.id)
         count -= 1
         countLabel.text = String(count)
         if count == 0 {
             minusButton.isHidden = true
             countLabel.isHidden = true
         }
+        delegate.orderDeleted(order)
     }
     
     @IBAction func actionPlus(_ sender: Any) {
-        guard let id = self.id else { return }
-        cartManager.plusDishes(id)
+        guard let order = self.order else { return }
+        cartManager.plusDishes(order.id)
         if count == 0 {
             minusButton.isHidden = false
             countLabel.isHidden = false
         }
         count += 1
         countLabel.text = String(count)
+        delegate.orderAdded(order)
     }
     
 }

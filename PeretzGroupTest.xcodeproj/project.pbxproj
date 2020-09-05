@@ -17,6 +17,9 @@
 		526F11B024E6D63700FCDE25 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526F11AF24E6D63600FCDE25 /* MenuModel.swift */; };
 		526F11B324E6D71C00FCDE25 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526F11B224E6D71C00FCDE25 /* NetworkManager.swift */; };
 		526F11B524E6DE7E00FCDE25 /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526F11B424E6DE7E00FCDE25 /* CartManager.swift */; };
+		52A6FF752504120500602F01 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A6FF742504120500602F01 /* CartView.swift */; };
+		52A6FF7725041A4F00602F01 /* CartItemImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A6FF7625041A4F00602F01 /* CartItemImagesView.swift */; };
+		52A6FF792504207F00602F01 /* Int+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A6FF782504207F00602F01 /* Int+Ext.swift */; };
 		DAA50DB8B7C41970D924070B /* Pods_PeretzGroupTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFE7F4DA99C5FF686471917 /* Pods_PeretzGroupTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +39,9 @@
 		526F11AF24E6D63600FCDE25 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		526F11B224E6D71C00FCDE25 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		526F11B424E6DE7E00FCDE25 /* CartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
+		52A6FF742504120500602F01 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		52A6FF7625041A4F00602F01 /* CartItemImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemImagesView.swift; sourceTree = "<group>"; };
+		52A6FF782504207F00602F01 /* Int+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				526F119024E6C36C00FCDE25 /* AppDelegate.swift */,
+				52A6FF72250411D900602F01 /* Custom view */,
 				526F11B124E6D71200FCDE25 /* Manager */,
 				526F11AE24E6D62B00FCDE25 /* Model */,
 				526F11A424E6C58E00FCDE25 /* Helpers */,
@@ -105,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				526F11A524E6C59900FCDE25 /* UIColor+Ext.swift */,
+				52A6FF782504207F00602F01 /* Int+Ext.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -149,6 +157,23 @@
 				526F11B424E6DE7E00FCDE25 /* CartManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		52A6FF72250411D900602F01 /* Custom view */ = {
+			isa = PBXGroup;
+			children = (
+				52A6FF73250411E800602F01 /* Cart view */,
+			);
+			path = "Custom view";
+			sourceTree = "<group>";
+		};
+		52A6FF73250411E800602F01 /* Cart view */ = {
+			isa = PBXGroup;
+			children = (
+				52A6FF742504120500602F01 /* CartView.swift */,
+				52A6FF7625041A4F00602F01 /* CartItemImagesView.swift */,
+			);
+			path = "Cart view";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,12 +291,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52A6FF7725041A4F00602F01 /* CartItemImagesView.swift in Sources */,
 				526F11B324E6D71C00FCDE25 /* NetworkManager.swift in Sources */,
 				526F11A624E6C59900FCDE25 /* UIColor+Ext.swift in Sources */,
 				526F11B524E6DE7E00FCDE25 /* CartManager.swift in Sources */,
 				526F119124E6C36C00FCDE25 /* AppDelegate.swift in Sources */,
+				52A6FF792504207F00602F01 /* Int+Ext.swift in Sources */,
 				526F11B024E6D63700FCDE25 /* MenuModel.swift in Sources */,
 				526F11AC24E6CFB400FCDE25 /* MenuTableViewCell.swift in Sources */,
+				52A6FF752504120500602F01 /* CartView.swift in Sources */,
 				526F11A924E6CF8F00FCDE25 /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
