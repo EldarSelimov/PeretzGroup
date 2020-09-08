@@ -46,11 +46,12 @@ class CartItemImagesView: UIView {
                         ? Array(images.suffix(maxItemsCount))[index]
                         : images[index]
             let imageView = UIImageView(image: imageResult.image)
-            let width = bounds.width / CGFloat(maxItemsCount)
+            let width = bounds.height
             let xPos = index == 0 ? 0 : width / 3 * CGFloat(index)
             imageView.frame = CGRect(x: xPos, y: 0, width: width, height: width)
             imageView.layer.cornerRadius = width / 2
             imageView.clipsToBounds = true
+            imageView.backgroundColor = .white
             imageView.layer.borderWidth = 0.5
             imageView.layer.borderColor = UIColor(hexString: "#686868").cgColor
             imageView.contentMode = .scaleAspectFit
