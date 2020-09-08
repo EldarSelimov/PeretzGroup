@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 class CartView: UIView {
     
@@ -64,24 +63,19 @@ class CartView: UIView {
         orders.append(order)
         
         if orders.count > 1 {
-            if orders[orders.count - 2] == order {
+            if orders.filter({ $0.id == order.id }).count > 1 {
                 return
             }
         }
         
-        guard let url = URL(string: order.image) else { return }
-        KingfisherManager.shared.retrieveImage(with: url) { [weak self] (result) in
-            switch result {
-            case .success(let imageResult):
-                self?.itemsView.setItem(with: imageResult.image)
-                
-            case .failure(_): break
-            }
-        }
+        itemsView.setItem(with: order)
     }
     
     public func removeOrder(_ order: MenuModel) {
         if let lastIndex = orders.lastIndex(of: order) {
+            if orders.filter({ $0.id == order.id }).count == 1 {
+                itemsView.dropItem(order)
+            }
             orders.remove(at: lastIndex)
         }
     }
