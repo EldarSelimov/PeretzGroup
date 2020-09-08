@@ -219,7 +219,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPl-uD-5YQ" customClass="CartView" customModule="PeretzGroupTest" customModuleProvider="target">
-                                <rect key="frame" x="15" y="642" width="384" height="50"/>
+                                <rect key="frame" x="15" y="772" width="384" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="8KT-hg-Baw"/>
@@ -232,7 +232,7 @@
                             <constraint firstItem="VPl-uD-5YQ" firstAttribute="leading" secondItem="DOp-X4-2ny" secondAttribute="leading" constant="15" id="Ukg-o3-OXy"/>
                             <constraint firstItem="YOv-S1-uiL" firstAttribute="top" secondItem="DOp-X4-2ny" secondAttribute="top" id="W8D-By-ik7"/>
                             <constraint firstItem="DOp-X4-2ny" firstAttribute="trailing" secondItem="VPl-uD-5YQ" secondAttribute="trailing" constant="15" id="cQn-nr-RMz"/>
-                            <constraint firstItem="DOp-X4-2ny" firstAttribute="bottom" secondItem="VPl-uD-5YQ" secondAttribute="bottom" constant="30" id="ckk-ep-Tnv"/>
+                            <constraint firstItem="DOp-X4-2ny" firstAttribute="bottom" secondItem="VPl-uD-5YQ" secondAttribute="bottom" constant="-100" id="ckk-ep-Tnv"/>
                             <constraint firstItem="DOp-X4-2ny" firstAttribute="trailing" secondItem="YOv-S1-uiL" secondAttribute="trailing" id="roH-JW-72K"/>
                             <constraint firstAttribute="bottom" secondItem="YOv-S1-uiL" secondAttribute="bottom" id="t0Q-7W-WZ1"/>
                         </constraints>
@@ -241,6 +241,7 @@
                     <navigationItem key="navigationItem" id="3N7-Xb-tGT"/>
                     <connections>
                         <outlet property="cartView" destination="VPl-uD-5YQ" id="oqH-6n-2ih"/>
+                        <outlet property="cartViewBottomConstraint" destination="ckk-ep-Tnv" id="HPh-tR-3Ho"/>
                         <outlet property="tableView" destination="YOv-S1-uiL" id="EnX-9f-4D9"/>
                     </connections>
                 </viewController>

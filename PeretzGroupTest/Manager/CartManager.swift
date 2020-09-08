@@ -12,27 +12,42 @@ class CartManager {
     static let shared = CartManager()
     private init() {}
     
-    private var dishesIds: [Int: Int] = [:]
+    private let defaults = UserDefaults.standard
+    private let menuKey = "MENU_PRODUCT"
+    
+    var dishesIds: [Int: Int] {
+        guard let decoded  = defaults.object(forKey: menuKey) as? Data else { return [:] }
+        let array = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(decoded) as? [Int: Int]
+        return array ?? [:]
+    }
     
     func getDishCount(by id: Int) -> Int? {
         return dishesIds[id]
     }
     
     func plusDishes(_ id: Int) {
-        if dishesIds[id] != nil {
-            dishesIds[id]! += 1
+        var dishesCopy = dishesIds
+        if dishesCopy[id] != nil {
+            dishesCopy[id]! += 1
         } else {
-            dishesIds[id] = 1
+            dishesCopy[id] = 1
         }
+        
+        let encodedData = try? NSKeyedArchiver.archivedData(withRootObject: dishesCopy, requiringSecureCoding: false)
+        defaults.set(encodedData, forKey: menuKey)
     }
     
     func minusDishes(_ id: Int) {
-        if dishesIds[id] != nil {
-            dishesIds[id]! -= 1
+        var dishesCopy = dishesIds
+        if dishesCopy[id] != nil {
+            dishesCopy[id]! -= 1
             
-            if dishesIds[id]! == 0 {
-                dishesIds[id] = nil
+            if dishesCopy[id]! == 0 {
+                dishesCopy[id] = nil
             }
         }
+        
+        let encodedData = try? NSKeyedArchiver.archivedData(withRootObject: dishesCopy, requiringSecureCoding: false)
+        defaults.set(encodedData, forKey: menuKey)
     }
 }

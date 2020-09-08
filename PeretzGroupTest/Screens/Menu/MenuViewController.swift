@@ -16,6 +16,7 @@ class MenuViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet weak var cartView: CartView!
+    @IBOutlet weak var cartViewBottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +27,23 @@ class MenuViewController: UIViewController {
         NetworkManager.shared.getMenu(onSuccess: { [weak self] (menuList) in
             self?.menu = menuList
             self?.tableView.reloadData()
+            self?.loadChachedDishes()
         }) { (error) in
             print(error)
+        }
+    }
+    
+    private func loadChachedDishes() {
+        if cartManager.dishesIds.count > 1 {
+            cartViewBottomConstraint.constant = 30
+            
+            cartManager.dishesIds.forEach { dict in
+                if let order = menu.first(where: { $0.id == dict.key }) {
+                    for _ in 1...dict.value {
+                        cartView.addOrder(order)
+                    }
+                }
+            }
         }
     }
     
@@ -67,10 +83,22 @@ extension MenuViewController: MenuTableViewCellDelegate {
     
     func orderAdded(_ order: MenuModel) {
         cartView.addOrder(order)
+        
+        guard cartManager.dishesIds.count < 2 else { return }
+        cartViewBottomConstraint.constant = 30
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
+            self.view.layoutIfNeeded()
+        })
     }
     
     func orderDeleted(_ order: MenuModel) {
         cartView.removeOrder(order)
+        
+        guard cartManager.dishesIds.count == 0 else { return }
+        cartViewBottomConstraint.constant = -100
+        UIView.animate(withDuration: 0.4, animations: {
+            self.view.layoutIfNeeded()
+        })
     }
     
 }
